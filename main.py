@@ -28,6 +28,17 @@ def main():
     plt.tight_layout()
     plt.show()
 
+    # Boxplot for all numeric columns
+    fig, axes = plt.subplots(3, 3, figsize=(15, 10))
+    axes = axes.flatten()
+
+    for i, col in enumerate(numeric_cols):
+        sns.boxplot(data=df, y=col, ax=axes[i])
+        axes[i].set_title(f'Boxplot of {col}')
+
+    plt.tight_layout()
+    plt.show()
+
 
 if __name__ == "__main__":
     main()
